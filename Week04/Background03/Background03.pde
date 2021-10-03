@@ -1,5 +1,5 @@
 PImage forest;
-float x1, y1, x2, y2;
+PVector p1, p2;
 float speedX1, speedX2;
 
 void setup() {
@@ -8,10 +8,9 @@ void setup() {
   forest.resize(forest.width * (height / forest.height), height);
   imageMode(CENTER);
   
-  x1 = width/2;
-  y1 = height/2;
-  x2 = x1 + 50;
-  y2 = y1 - 50;
+  p1 = new PVector(width/2, height/2);
+  p2 = new PVector(p1.x + 50, p1.y - 50);
+  
   speedX1 = 5;
   speedX2 = speedX1 * 0.5;
 }
@@ -20,15 +19,15 @@ void draw() {
   background(0, 127, 255);
     
   tint(255, 127);
-  image(forest, x2, y2);
+  image(forest, p2.x, p2.y);
   
   noTint();
-  image(forest, x1, y1); // the image drawn last will be in front
+  image(forest, p1.x, p1.y); // the image drawn last will be in front
   
-  x1 += speedX1;
-  x2 += speedX2;
+  p1.x += speedX1;
+  p2.x += speedX2;
     
-  if (x1 > width || x1 < 0) {
+  if (p1.x > width || p1.x < 0) {
     speedX1 *= -1;  
     speedX2 *= -1;
   }
