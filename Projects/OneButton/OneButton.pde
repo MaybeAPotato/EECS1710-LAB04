@@ -28,8 +28,8 @@ void draw(){
   theEye.run();
   theEndLine.run();
   
-  //fill(127,0,0);
-  //textSize(32);
-  //text(millis(),width/2,height * 5.0f/6.0f);
+  fill(255);
+  textSize(32);
+  text("Hold spacebar to move",width/4,height/8);
   
 }

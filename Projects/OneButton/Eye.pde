@@ -47,11 +47,6 @@ class Eye {
       rectMode(CENTER);
       rect(pos.x, pos.y, eyeWidth, eyeHeight);
     }
-
-    //debug
-    fill(255);
-    textSize(32);
-    text(timePassed, width/2, height * 5.0f/6.0f);
   }
 
   void KillThePlayer() {
