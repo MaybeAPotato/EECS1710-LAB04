@@ -9,6 +9,8 @@ class Box {
   // We need to keep track of a Body and a width and height
   Body body;
   PVector boxColor;
+  Vec2 pos;
+  float angle;
   float x;
   float y;
   float w;
@@ -68,15 +70,14 @@ class Box {
   }
   
   void update(){
+    // We look at each body and get its screen position
+    pos = box2d.getBodyPixelCoord(body);
+    // Get its angle of rotation
+    angle = body.getAngle();
   }  
 
   // Drawing the box
   void draw() {
-    // We look at each body and get its screen position
-    Vec2 pos = box2d.getBodyPixelCoord(body);
-    // Get its angle of rotation
-    float a = body.getAngle();
-
     rectMode(CENTER);
     pushMatrix();
     translate(pos.x, pos.y);

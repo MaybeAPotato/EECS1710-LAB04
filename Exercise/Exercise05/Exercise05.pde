@@ -10,6 +10,7 @@ import org.jbox2d.dynamics.*;
 Box2DProcessing box2d;
 Pet p;
 Player thePlayer;
+Boundary leftBoundary, rightBoundary;
 
 void setup() {
   size(800, 600, P2D);  
@@ -21,6 +22,9 @@ void setup() {
   
   // We are setting a custom gravity
   box2d.setGravity(0, -9.8f);
+  
+  leftBoundary = new Boundary(-1,height/2,1,height);
+  rightBoundary = new Boundary(width+1,height/2,1,height);
   
   p = new Pet(width/2,0,64,64);
   thePlayer = new Player(width/2,height - 30,250,30);
