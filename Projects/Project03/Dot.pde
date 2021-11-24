@@ -27,6 +27,10 @@ class Dot {
     ready = false;
   }
   
+  float distanceToTarget(){
+    return PVector.dist(position,target);
+  }
+  
   void setTarget(float _x, float _y){
     target = new PVector(_x,_y);
   }
@@ -52,6 +56,11 @@ class Dot {
   void setSpeed(float s){
     speed = random(s) + 0.01f;
   }
+  
+  void setOriginalPos(PVector newOrg){
+    originalPos = newOrg;
+  }
+  
   
   void run() {
     update();
