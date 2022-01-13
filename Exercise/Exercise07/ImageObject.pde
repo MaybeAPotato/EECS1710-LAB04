@@ -15,7 +15,7 @@ class ImageObject extends Object{
   }
   
   void draw(){
-    imageMode(CENTER);
-    pg.image(img,position.x,position.y);
+    imageMode(CORNER);
+    pg.image(img,0,position.y);
   }
 }

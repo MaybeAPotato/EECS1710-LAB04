@@ -15,11 +15,7 @@ void setup(){
   
   shader = loadShader("example.glsl");
   shader.set("resolution", float(width), float(height));
-  shader.set("rate", 0.1);
-  
-  pg.beginDraw();
-  pg.background(0);
-  pg.endDraw();
+  shader.set("rate", 0.1f);
 }
 
 void draw(){
@@ -33,12 +29,15 @@ void draw(){
   //Shader drawing
   shader.set("time", float(millis())/1000.0);
   shader.set("tex0", pg);
-  pg.filter(shader);
+  
+  if(mouseDown){
+    pg.filter(shader);
+  }
   
   pg.blendMode(BLEND);
   pg.noStroke();
   pg.fill(0, 0, 0, 0);
-  pg.rect(0, 0, width, height);
+  pg.rect(0, 0, 15, 15);
   
   pg.endDraw();
   
